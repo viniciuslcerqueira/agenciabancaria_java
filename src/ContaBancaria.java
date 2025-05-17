@@ -1,12 +1,14 @@
+import java.util.Scanner;
+
 public class ContaBancaria {
-    private String titular;
     private String cpf;
-    private int senha;
+    private String titular;
+    private String senha;
     private double saldo;
 
-    public ContaBancaria(String titular, String cpf, int senha) {
-        this.titular = titular;
+    public ContaBancaria(String cpf, String titular,  String senha) {
         this.cpf = cpf;
+        this.titular = titular;
         this.senha = senha;
         saldo = 0;
     }
@@ -15,24 +17,13 @@ public class ContaBancaria {
         return titular;
     }
 
-    public void setTitular(String titular) {
-        this.titular = titular;
-    }
 
     public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public int getSenha() {
+    public String getSenha() {
         return senha;
-    }
-
-    public void setSenha(int senha) {
-        this.senha = senha;
     }
 
     public double getSaldo() {
@@ -42,4 +33,6 @@ public class ContaBancaria {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
+
+
 }

@@ -26,6 +26,10 @@ public class Main {
         //Opcão de entrada
         //1. Cadastrar, 2- Acessar conta.
 
+        if (opcaoMenu1 == 1){
+            menu.cadastrarConta(scanner);
+        }
+
 
 
 
