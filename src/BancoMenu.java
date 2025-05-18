@@ -9,12 +9,27 @@ public class BancoMenu {
         System.out.println("2 - Acessar conta");
     }
 
-    public void exibirMenuContaLogada(){
-        System.out.println("Digite o numero de uma das opções abaixo:");
-        System.out.println("1 - Visualizar Saldo");
-        System.out.println("2 - Sacar Dinheiro");
-        System.out.println("3 - Depositar Dinheiro");
-        System.out.println("4 - Sair");
+    public void exibirMenuContaLogada(Scanner scanner, ContaBancaria conta) {
+        int opcao;
+        do {
+            System.out.println("\n--- Conta Logada ---");
+            System.out.println("1 - Visualizar Saldo");
+            System.out.println("2 - Sacar Dinheiro");
+            System.out.println("3 - Depositar Dinheiro");
+            System.out.println("4 - Sair");
+            System.out.print("Escolha uma opção: ");
+
+            opcao = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (opcao) {
+                case 1 -> ServicosBanco.visualizarSaldo(conta);
+                case 2 -> ServicosBanco.sacar(conta, scanner);
+                case 3 -> ServicosBanco.depositar(conta, scanner);
+                case 4 -> System.out.println("Saindo da conta...");
+                default -> System.out.println("Opção inválida.");
+            }
+        } while (opcao != 4);
     }
 
 

@@ -38,7 +38,7 @@ public class Main {
 
 // Se uma conta foi retornada com sucesso:
         if (contaLogada != null) {
-            menu.exibirMenuContaLogada();
+            menu.exibirMenuContaLogada(scanner, contaLogada);
         }
 
 

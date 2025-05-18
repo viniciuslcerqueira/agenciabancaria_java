@@ -25,16 +25,19 @@ public class ServicosBanco {
 
     public static void depositar(ContaBancaria contaBancaria, Scanner scanner) {
         System.out.println("Digite o valor que voce quer depositar: ");
-        double valorDeposito = scanner.nextDouble();
-        scanner.nextLine();
+        String input = scanner.nextLine();
 
-        if (valorDeposito < 0) {
-            System.out.println("Valor Invalido");
-        } else if (valorDeposito > contaBancaria.getSaldo()) {
-            System.out.println("Saldo insuficiente");
-        } else {
-            contaBancaria.setSaldo(contaBancaria.getSaldo() - valorDeposito);
-            System.out.println("Saque realizado com sucesso");
+        try {
+            double valorDeposito =  Double.parseDouble(input.replace(",", "."));
+
+            if (valorDeposito <= 0) {
+                System.out.println("Valor Invalido");
+            } else {
+                contaBancaria.setSaldo(contaBancaria.getSaldo() + valorDeposito);
+                System.out.println("Saque realizado com sucesso");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Entrada inválida. Digite um numero valido.");
         }
 
 
